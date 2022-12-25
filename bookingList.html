@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<meta name="Description" content="Enter your description here" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css" />
+
+	<link href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
+	<link rel="stylesheet" href="assets/css/style.css" />
+	<link rel="stylesheet" href="assets/css/bookingList.css">
+	<title>Title</title>
+</head>
+
+<body onload="toggleSidebar()">
+	<!-- sidebar start -->
+	<div class="js-render">
+		<side-bar></side-bar>
+		<!-- <side-bar></side-bar> -->
+	</div>
+	<!-- sidebar end -->
+
+	<div id="main">
+		<!-- topbar start -->
+		<top-bar></top-bar>
+		<!-- topbar end -->
+		<div class="container-fluid">
+			<div class="container-fluid mt-5 card shadow p-3 fix">
+				<div class="d-flex justify-content-between mt-3 mb-3">
+					<div class="main-title mb-3 h4">Booking List</div>
+					<div>
+						<a href="createNewBooking.html">
+							<button class="btn btn-default btn-success">
+								<i class="fas fa-plus-circle mr-1 rounded"></i>Create
+							</button>
+						</a>
+					</div>
+				</div>
+				<div class=" table-responsive">
+					<table class="table table-bordered text-center" id="dataTable" cell-spacing="0">
+						<thead>
+							<tr>
+								<th>Booking Number</th>
+								<th>Date</th>
+								<th>Referance</th>
+								<th>Sender</th>
+								<th>R.Name</th>
+								<th>R.Phone</th>
+								<th>Freight Category</th>
+								<th>Home Delivery</th>
+								<th>Destination</th>
+								<th>Status</th>
+								<th>NOB</th>
+								<th>Total</th>
+								<th>Country</th>
+								<th>State</th>
+								<th>City</th>
+								<th>Action</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>7</td>
+								<td>2018-07-22</td>
+								<td>KM</td>
+								<td>Rifat</td>
+								<td>Shishir</td>
+								<td>01750858585</td>
+								<td>Air Freight</td>
+								<td>Data7</td>
+								<td>Data8</td>
+								<td>
+									<form action="" class="abc">
+									<select class="form-control-lg re_Size btnSelect" name="">
+										<option value="Malaysia Office">Malaysia Office</option>
+										<option value="Bangladesh Office">Bangladesh Office</option>
+										<option value="Customs Office">Customs Offic</option>
+										<option value="Delivered">Delivered</option>
+										<option value="Missing">Missing</option>
+									</select>
+									</form>
+								</td>
+								<td>Data10</td>
+								<td>5000</td>
+								<td>Bangladesh</td>
+								<td>Dhaka</td>
+								<td>Gulshan</td>
+								<td class="d-flex justify-content-around align-content-center">
+									<a href="#editEmployeeModal" class="edit_data btn btn-success mr-1"
+										data-toggle="modal" style="font-size: 1rem;"><i class="fas fa-edit edit "
+											title="Edit"></i></a>
+									<a href="#deleteEmployeeModal" class="delete btn btn-danger" data-toggle="modal"><i
+											class="far fa-trash-alt" data-toggle="tooltip" title="Delete"
+											style="font-size: 1rem;"></i></a>
+								</td>
+							</tr>
+							<tr>
+								<td>11</td>
+								<td>2018-07-22</td>
+								<td>2Data</td>
+								<td>3Data</td>
+								<td>4Data</td>
+								<td>02747474747</td>
+								<td>Sea Freight</td>
+								<td>7Data</td>
+								<td>8Data</td>
+								<td>
+									<form action="" class="abc" method="">
+									<select class="form-control-lg re_Size btnSelect" name="">
+										<option value="Malaysia Office">Malaysia Office</option>
+										<option value="Bangladesh Office">Bangladesh Office</option>
+										<option value="Customs Office">Customs Offic</option>
+										<option value="Delivered">Delivered</option>
+										<option value="Missing">Missing</option>
+									</select>
+									</form>
+								</td>
+								<td>10Data</td>
+								<td>1100</td>
+								<td> Malaysia </td>
+								<td> Kelantan </td>
+								<td> Tumpat </td>
+								<td class="d-flex justify-content-around align-content-center">
+									<a href="#editEmployeeModal" class="edit_data btn btn-success mr-1"
+										data-toggle="modal" style="font-size: 1rem;"><i class="fas fa-edit edit "
+											title="Edit"></i></a>
+									<a href="#deleteEmployeeModal" class="delete btn btn-danger" data-toggle="modal"><i
+											class="far fa-trash-alt" data-toggle="tooltip" title="Delete"
+											style="font-size: 1rem;"></i></a>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+			</div>
+		</div>
+		<footer-foot></footer-foot>
+	</div>
+
+	<!-- delete modal -->
+	<div id="deleteEmployeeModal" class="modal fade">
+		<div class="modal-dialog  modal-dialog-centered">
+			<div class="modal-content">
+				<form>
+					<div class="modal-body">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+						<div class="del">
+							<i class="fas fa-times fa-4x del_icon text-danger"></i>
+						</div>
+						<div class="h5 text-center pt-3 pb-4">
+							Are you sure want to delete?
+						</div>
+						<div class="d-flex justify-content-center">
+							<div class="btn btn-dark col-4 mr-2" data-dismiss="modal" aria-hidden="true">
+								Cancel
+							</div>
+							<div class="btn btn-danger col-4 ml-2" id="confirm" data-dismiss="modal" aria-hidden="true">
+								Delete
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- modal edit -->
+
+	<div id="editEmployeeModal" class="modal fade">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				
+					<div class="modal-header">
+						<h4 class="modal-title">Edit</h4>
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+							&times;
+						</button>
+					</div>
+					<div class="modal-body">
+						<div class="form-group">
+							<label>Date</label>
+							<input type="date" id="edit_date" class="form-control" />
+						</div>
+						<div class="form-group">
+							<label>Referance</label>
+							<input type="text" id="edit_reference" class="form-control" />
+						</div>
+						<div class="form-group">
+							<label>Sender</label>
+							<input type="text" class="form-control" id="edit_sender"></input>
+						</div>
+						<div class="form-group">
+							<label>R.Name</label>
+							<input type="test" id="edit_rname" class="form-control" />
+						</div>
+						<div class="form-group">
+							<label>R.Phone</label>
+							<input type="number" min="0" id="edit_rphone" class="form-control" />
+						</div>
+						<div class="form-group">
+							<label>Freight Category</label>
+							<select name="" id="edit_freight" class="form-control">
+								<option value="Select freight">Select Freight</option>
+								<option value="Air Freight">Air Freight</option>
+								<option value="Cargo Freight">Cargo Freight</option>
+								<option value="Sea Freight">Sea Freight</option>
+							</select>
+						</div>
+						<div class="row">
+							<div class="col">
+								<label>Country</label>
+								<select class="form-control" name="" id="countryR">
+									<option value="country">Country</option>
+								</select>
+							</div>
+							<div class="col">
+								<label>State</label>
+								<select class="form-control" name="" id="stateR">
+									<option value="state">State</option>
+								</select>
+							</div>
+							<div class="col">
+								<label>State</label>
+								<select class="form-control" name="" id="cityR">
+									<option value="city">City</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-group">
+							<label>Home Delivery</label>
+							<input type="text" id="edit_delivery" class="form-control" />
+						</div>
+						<div class="form-group">
+							<label for="">Delivery Type</label>
+							<select name="" class="form-control" id="edit_delivery_type">
+								<option value="Office Delivery">Office Delivery</option>
+								<option value="Home Delivery">Home Delivery</option>
+							</select>
+						</div>
+						<div style="display: none" id="additionalInfo">
+							<div class="row">
+								<div class="col">
+									<div class="form-group">
+										<label for="">Road No</label>
+										<input type="text" class="form-control" name="" id="" placeholder="Road No" />
+									</div>
+								</div>
+								<div class="col">
+									<div class="form-group">
+										<label for="">House No</label>
+										<input type="text" class="form-control" name="" id="" placeholder="House No" />
+									</div>
+								</div>
+								<div class="col">
+									<div class="form-group">
+										<label for="">Others</label>
+										<input type="text" class="form-control" name="" id="" placeholder="Others" />
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label>Destination</label>
+							<select name="" id="edit_status" class="form-control">
+								<option value="Malaysia Office">Malaysia Office</option>
+								<option value="Bangladesh Office">Bangladesh Office</option>
+								<option value="Customs Office">Customs Offic</option>
+								<option value="Delivered">Delivered</option>
+								<option value="Missing">Missing</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label>Status</label>
+							<select name="" id="edit_status" class="form-control">
+								<option value="Malaysia Office">Malaysia Office</option>
+								<option value="Bangladesh Office">Bangladesh Office</option>
+								<option value="Customs Office">Customs Offic</option>
+								<option value="Delivered">Delivered</option>
+								<option value="Missing">Missing</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label>NOB</label>
+							<input type="text" id="edit_nob" class="form-control" />
+						</div>
+						<div class="form-group">
+							<label>Total</label>
+							<input type="number" min="0" id="edit_total" class="form-control" />
+						</div>
+					</div>
+					<div class="modal-footer">
+						<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel" />
+						<input type="submit" class="btn btn-info" id="bookingUpdate" value="Save" />
+					</div>
+			</div>
+		</div>
+
+	</div>
+	<section class="container">
+		<div class="spinner spin-1"></div>
+		<div class="spinner spin-2"></div>
+		<div class="spinner spin-3"></div>
+	</section>
+
+	<script src="assets/js/preloader.js"></script>
+	<script src="assets/js/bookingList.js"></script>
+	<script src="assets/js/nav.js" defer></script>
+	<script src="assets/js/sideNav.js"></script>
+	<script src="assets/js/topNav.js"></script>
+	<script src="assets/js/footer.js"></script>
+	<script src="assets/js/countryStateCity.js"></script>
+	<script>
+		$(document).ready(function () {
+			$("#dataTable").DataTable();
+		});
+	</script>
+</body>
+
+</html>

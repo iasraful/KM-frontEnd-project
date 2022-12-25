@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<meta name="Description" content="Enter your description here" />
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css"
+		/>
+
+		<link
+			href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css"
+			rel="stylesheet"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+		/>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
+		<script src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
+		<link rel="stylesheet" href="assets/css/style.css" />
+		<link rel="stylesheet" href="assets/css/bookingList.css" />
+		<title>Title</title>
+	</head>
+
+	<body onload="toggleSidebar()">
+		<div class="js-render">
+			<side-bar></side-bar>
+		</div>
+		<div id="main">
+			<top-bar></top-bar>
+			<div class="container-fluid">
+				<div class="mt-5 card shadow p-3 fix">
+					<div class="d-flex justify-content-between mt-3 mb-3">
+						<div class="main-title mb-3 h4">BD Office Expenses</div>
+						<div>
+							<a href="#createEmployeeModal" data-toggle="modal">
+								<button class="btn btn-default btn-success">
+									<i class="fas fa-plus-circle mr-1 rounded"></i>Create
+								</button>
+							</a>
+						</div>
+					</div>
+					<div class="table-responsive">
+						<table
+							class="table table-bordered text-center"
+							cellspacing="0"
+							id="example"
+						>
+							<thead>
+								<tr>
+									<th>Date</th>
+									<th>Category</th>
+									<th>Amount</th>
+									<th>Enter By</th>
+									<th>Note</th>
+									<th>Action</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>1999-07-22</td>
+									<td>Soap</td>
+									<td>125</td>
+									<td>KM Cargo</td>
+									<td>Noyrtrt</td>
+									<td>
+										<a
+											href="#editEmployeeModal"
+											class="edit btn btn-success"
+											data-toggle="modal"
+											><i class="fas fa-edit edit" title="Edit"></i
+										></a>
+										<a
+											href="#deleteEmployeeModal"
+											class="delete btn btn-danger"
+											data-toggle="modal"
+											><i
+												class="far fa-trash-alt"
+												data-toggle="tooltip"
+												title="Delete"
+											></i
+										></a>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+
+			<!-- delete modal -->
+			<div id="deleteEmployeeModal" class="modal fade">
+				<div class="modal-dialog modal-dialog-centered">
+					<div class="modal-content">
+						<form>
+							<div class="modal-body">
+								<button
+									type="button"
+									class="close"
+									data-dismiss="modal"
+									aria-hidden="true"
+								>
+									×
+								</button>
+								<div class="del">
+									<i class="fas fa-times fa-4x del_icon text-danger"></i>
+								</div>
+								<div class="h5 text-center pt-3 pb-4">
+									Are you sure want to delete?
+								</div>
+								<div class="d-flex justify-content-center">
+									<div
+										class="btn btn-dark col-4 mr-2"
+										data-dismiss="modal"
+										aria-hidden="true"
+									>
+										Cancel
+									</div>
+									<div
+										class="btn btn-danger col-4 ml-2"
+										id="confirm"
+										data-dismiss="modal"
+										aria-hidden="true"
+									>
+										Delete
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<!-- edit modal -->
+			<div id="editEmployeeModal" class="modal fade">
+				<div class="modal-dialog">
+					<form>
+						<div class="modal-content">
+							<div class="modal-header">
+								<h4 class="modal-title">Edit</h4>
+								<button
+									type="button"
+									class="close"
+									data-dismiss="modal"
+									aria-hidden="true"
+								>
+									&times;
+								</button>
+							</div>
+							<div class="modal-body">
+								<div class="form-group">
+									<label>Date</label>
+									<input type="date" id="date" class="form-control" />
+								</div>
+								<div class="form-group">
+									<label>Category</label>
+									<select name="" id="category" class="form-control">
+										<option value="Select Category">Select Category</option>
+										<option value="Soap">Soap</option>
+										<option value="Laptop">Laptop</option>
+									</select>
+								</div>
+								<div class="form-group">
+									<label>Amount</label>
+									<input
+										type="number"
+										min="0"
+										id="amount"
+										class="form-control"
+									/>
+								</div>
+								<div class="form-group">
+									<label>Enter By</label>
+									<input type="text" id="enterBy" class="form-control" />
+								</div>
+								<div class="form-group">
+									<label>Note</label>
+									<textarea
+										name=""
+										class="form-control"
+										id="note"
+										cols="30"
+										rows="2"
+									></textarea>
+								</div>
+							</div>
+
+							<div class="modal-footer">
+								<input
+									type="button"
+									class="btn btn-default"
+									data-dismiss="modal"
+									value="Cancel"
+								/>
+								<input type="submit" class="btn btn-info" value="Save" />
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+
+			<!-- create -->
+			<div id="createEmployeeModal" class="modal fade">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<form>
+							<div class="modal-header">
+								<h4 class="modal-title">Add New Expenses</h4>
+								<button
+									type="button"
+									class="close"
+									data-dismiss="modal"
+									aria-hidden="true"
+								>
+									&times;
+								</button>
+							</div>
+							<div class="modal-body">
+								<div class="form-group">
+									<label>Date</label>
+									<input type="date" id="dateCreate" class="form-control" />
+								</div>
+								<div class="form-group">
+									<label>Category</label>
+									<select name="" id="categoryCreate" class="form-control">
+										<option value="Select Category">Select Category</option>
+										<option value="Soap">Soap</option>
+										<option value="Laptop">Laptop</option>
+									</select>
+								</div>
+								<div class="form-group">
+									<label>Amount</label>
+									<input
+										type="number"
+										min="0"
+										id="ammountCreate"
+										class="form-control"
+									/>
+								</div>
+								<div class="form-group">
+									<label>Enter By</label>
+									<input type="text" id="enterByCreate" class="form-control" />
+								</div>
+								<div class="form-group">
+									<label>Note</label>
+									<textarea
+										name=""
+										class="form-control"
+										id="noteCreate"
+										cols="30"
+										rows="2"
+									></textarea>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<input
+									type="button"
+									class="btn btn-default"
+									data-dismiss="modal"
+									value="Cancel"
+								/>
+								<input type="submit" class="btn btn-info" value="Save" />
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<footer-foot></footer-foot>
+		</div>
+		<section class="container">
+			<div class="spinner spin-1"></div>
+			<div class="spinner spin-2"></div>
+			<div class="spinner spin-3"></div>
+		</section>
+
+		<script src="assets/js/sideNav.js"></script>
+		<script src="assets/js/topNav.js"></script>
+		<script src="assets/js/footer.js"></script>
+		<script src="assets/js/nav.js" defer></script>
+		<script src="assets/js/preloader.js"></script>
+		<script src="assets/js/bdOfficeExpense.js"></script>
+
+		<script>
+			$(document).ready(function () {
+				$("#example").DataTable();
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,20 @@
+.child {
+	height: 75vh;
+	overflow: auto;
+	position: absolute;
+	top: 52%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+.child::-webkit-scrollbar {
+	width: 5px;
+}
+.child::-webkit-scrollbar-track {
+	background: #f1f1f1;
+}
+.child::-webkit-scrollbar-thumb {
+	background: #888;
+}
+.child::-webkit-scrollbar-thumb:hover {
+	background: #555;
+}

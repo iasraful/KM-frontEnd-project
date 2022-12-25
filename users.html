@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<meta name="Description" content="Enter your description here" />
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css"
+		/>
+
+		<link
+			href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css"
+			rel="stylesheet"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+		/>
+		<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+		<script src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
+		<script src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
+
+		<link rel="stylesheet" href="assets/css/style.css" />
+		<link rel="stylesheet" href="assets/css/bookingList.css" />
+		<title>Title</title>
+	</head>
+
+	<body onload="toggleSidebar()">
+		<div class="js-render">
+			<side-bar></side-bar>
+		</div>
+
+		<div id="main">
+			<top-bar></top-bar>
+			<div class="container-fluid mt-5">
+				<div class="container-fluid card shadow p-3 fix">
+					<div class="d-flex justify-content-between mt-3 mb-3">
+						<div class="main-title mb-3 h4">Users List</div>
+						<div>
+							<a href="#createEmployeeModal" data-toggle="modal">
+								<button class="btn btn-default btn-success">
+									<i class="fas fa-plus-circle mr-1 rounded"></i>Create
+								</button>
+							</a>
+						</div>
+					</div>
+					<div class="table-responsive">
+						<table
+							class="table table-bordered text-center"
+							id="dataTable"
+							width="100%"
+							cellspacing="0"
+						>
+							<thead>
+								<tr>
+									<th class="th-sm">Name</th>
+									<th class="th-sm">Email Address</th>
+									<th class="th-sm">Phone</th>
+									<th class="th-sm">Role</th>
+									<th class="th-sm">Action</th>
+								</tr>
+							</thead>
+							<tbody>
+								<form action="" method="post">
+									<tr>
+										<td>Alif Hossain</td>
+										<td>alif@gmail.com</td>
+										<td>01818522622</td>
+										<td>Admin</td>
+										<td>
+											<div class="dropdown open">
+												<button
+													class="btn btn-secondary dropdown-toggle"
+													type="button"
+													id="triggerId"
+													data-toggle="dropdown"
+													aria-haspopup="true"
+													aria-expanded="false"
+												>
+													Actions
+												</button>
+												<div class="dropdown-menu" aria-labelledby="triggerId">
+													<a
+														href="#changeModal"
+														class="dropdown-item role"
+														data-toggle="modal"
+														><i class="fas fa-user-tag mr-1 role"></i>Change
+														Role</a
+													>
+													<a
+														href="#passModal"
+														class="dropdown-item change_password"
+														data-toggle="modal"
+														><i class="fas fa-key mr-1"></i>Change Password</a
+													>
+													<a
+														href="#editEmployeeModal"
+														class="dropdown-item edit edit_data"
+														data-toggle="modal"
+														><i class="fas fa-edit edit mr-1"></i>Edit</a
+													>
+													<a
+														href="#deleteEmployeeModal"
+														class="dropdown-item delete"
+														data-toggle="modal"
+														><i class="far fa-trash-alt mr-1"></i>Delete</a
+													>
+												</div>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td>Hossain</td>
+										<td>alif@gmail.com</td>
+										<td>01818522622</td>
+										<td>Manager</td>
+										<td>
+											<div class="dropdown open">
+												<button
+													class="btn btn-secondary dropdown-toggle"
+													type="button"
+													id="triggerId"
+													data-toggle="dropdown"
+													aria-haspopup="true"
+													aria-expanded="false"
+												>
+													Actions
+												</button>
+												<div class="dropdown-menu" aria-labelledby="triggerId">
+													<a
+														class="dropdown-item"
+														href="#changeModal"
+														data-toggle="modal"
+														><i class="fas fa-user-tag mr-1"></i>Change Role</a
+													>
+													<a
+														href="#passModal"
+														class="dropdown-item change_password"
+														data-toggle="modal"
+														><i class="fas fa-key mr-1"></i>Change Password</a
+													>
+													<a
+														class="dropdown-item edit edit_data"
+														href="#editEmployeeModal"
+														data-toggle="modal"
+														><i class="fas fa-edit edit mr-1"></i>Edit</a
+													>
+													<a
+														href="#deleteEmployeeModal"
+														class="dropdown-item delete"
+														data-toggle="modal"
+														><i class="far fa-trash-alt mr-1"></i>Delete</a
+													>
+												</div>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td>Alif</td>
+										<td>alif@gmail.com</td>
+										<td>01818522622</td>
+										<td>Booking Officer</td>
+										<td>
+											<div class="dropdown open">
+												<button
+													class="btn btn-secondary dropdown-toggle"
+													type="button"
+													id="triggerId"
+													data-toggle="dropdown"
+													aria-haspopup="true"
+													aria-expanded="false"
+												>
+													Actions
+												</button>
+												<div class="dropdown-menu" aria-labelledby="triggerId">
+													<a
+														class="dropdown-item role"
+														href="#changeModal"
+														data-toggle="modal"
+														><i class="fas fa-user-tag mr-1"></i>Change Role</a
+													>
+													<a
+														href="#passModal"
+														class="dropdown-item change_password"
+														data-toggle="modal"
+														><i class="fas fa-key mr-1"></i>Change Password</a
+													>
+													<a
+														class="dropdown-item edit edit_data"
+														href="#editEmployeeModal"
+														data-toggle="modal"
+														><i class="fas fa-edit edit mr-1"></i>Edit</a
+													>
+													<a
+														href="#deleteEmployeeModal"
+														class="dropdown-item delete"
+														data-toggle="modal"
+														><i class="far fa-trash-alt mr-1"></i>Delete</a
+													>
+												</div>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td>Admin</td>
+										<td>alif@gmail.com</td>
+										<td>01818522622</td>
+										<td>Package Controller</td>
+										<td>
+											<div class="dropdown open">
+												<button
+													class="btn btn-secondary dropdown-toggle"
+													type="button"
+													id="triggerId"
+													data-toggle="dropdown"
+													aria-haspopup="true"
+													aria-expanded="false"
+												>
+													Actions
+												</button>
+												<div class="dropdown-menu" aria-labelledby="triggerId">
+													<a
+														class="dropdown-item role"
+														href="#changeModal"
+														data-toggle="modal"
+														><i class="fas fa-user-tag mr-1"></i>Change Role</a
+													>
+													<a
+														href="#passModal"
+														class="dropdown-item change_password"
+														data-toggle="modal"
+														><i class="fas fa-key mr-1"></i>Change Password</a
+													>
+													<a
+														class="dropdown-item edit edit_data"
+														href="#editEmployeeModal"
+														data-toggle="modal"
+														><i class="fas fa-edit edit mr-1"></i>Edit</a
+													>
+													<a
+														href="#deleteEmployeeModal"
+														class="dropdown-item delete"
+														data-toggle="modal"
+														><i class="far fa-trash-alt mr-1"></i>Delete</a
+													>
+												</div>
+											</div>
+										</td>
+									</tr>
+								</form>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<!-- delete modal -->
+			<div id="deleteEmployeeModal" class="modal fade">
+				<div class="modal-dialog modal-dialog-centered">
+					<div class="modal-content">
+						<form>
+							<div class="modal-body">
+								<button
+									type="button"
+									class="close"
+									data-dismiss="modal"
+									aria-hidden="true"
+								>
+									×
+								</button>
+								<div class="del">
+									<i class="fas fa-times fa-4x del_icon text-danger"></i>
+								</div>
+								<div class="h5 text-center pt-3 pb-4">
+									Are you sure want to delete?
+								</div>
+								<div class="d-flex justify-content-center">
+									<div
+										class="btn btn-dark col-4 mr-2"
+										data-dismiss="modal"
+										aria-hidden="true"
+									>
+										Cancel
+									</div>
+									<div
+										class="btn btn-danger col-4 ml-2"
+										id="confirm"
+										data-dismiss="modal"
+										aria-hidden="true"
+									>
+										Delete
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<!--edit modal -->
+			<div id="editEmployeeModal" class="modal fade">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<form action="" method="post">
+							<div class="modal-header">
+								<h4 class="modal-title">Edit</h4>
+								<button
+									type="button"
+									class="close"
+									data-dismiss="modal"
+									aria-hidden="true"
+								>
+									&times;
+								</button>
+							</div>
+							<div class="modal-body">
+								<div class="form-group">
+									<label>Name</label>
+									<input type="text" id="name" class="form-control" />
+								</div>
+								<div class="form-group">
+									<label>Email</label>
+									<input type="email" id="email" class="form-control" />
+								</div>
+								<div class="form-group">
+									<label>Phone</label>
+									<input
+										type="number"
+										min="0"
+										id="phone"
+										class="form-control"
+									/>
+								</div>
+								<div class="form-group">
+									<label for="">Select Role</label>
+									<select class="form-control select" name="" id="role_change2">
+										<option value="Select Role">Select Role</option>
+										<option value="Admin">Admin</option>
+										<option value="Manager">Manager</option>
+										<option value="Booking Officer">Booking Officer</option>
+										<option value="Package Controller">
+											Package Controller
+										</option>
+									</select>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<input
+									type="button"
+									class="btn btn-default"
+									data-dismiss="modal"
+									value="Cancel"
+								/>
+								<input
+									type="btn"
+									id="edit_user"
+									class="btn btn-info"
+									value="Save"
+								/>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<!-- change role -->
+			<div id="changeModal" class="modal fade">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<form>
+							<div class="modal-header">
+								<h4 class="modal-title">Change Role</h4>
+								<button
+									type="button"
+									class="close"
+									data-dismiss="modal"
+									aria-hidden="true"
+								>
+									&times;
+								</button>
+							</div>
+							<div class="modal-body">
+								<div class="form-group">
+									<select class="form-control select" name="" id="role_change">
+										<option value="Select Role">Select Role</option>
+										<option value="Admin">Admin</option>
+										<option value="Manager">Manager</option>
+										<option value="Booking Officer">Booking Officer</option>
+										<option value="Package Controller">
+											Package Controller
+										</option>
+									</select>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<input
+									type="button"
+									class="btn btn-default"
+									data-dismiss="modal"
+									value="Cancel"
+								/>
+								<input type="submit" class="btn btn-info" value="Save" />
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<!-- change pass -->
+			<div id="passModal" class="modal fade">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<form>
+							<div class="modal-header">
+								<h4 class="modal-title">Change Password</h4>
+								<button
+									type="button"
+									class="close"
+									data-dismiss="modal"
+									aria-hidden="true"
+								>
+									&times;
+								</button>
+							</div>
+							<div class="modal-body">
+								<div class="form-group">
+									<label for="">Enter New Password</label>
+									<input
+										type="password"
+										class="form-control"
+										name=""
+										id="new_pass"
+										placeholder="New Password"
+										onkeyup="passwordVallidate()"
+										minlength="5"
+									/>
+								</div>
+								<div class="form-group">
+									<label for="">Confirm New Password</label>
+									<input
+										type="password"
+										class="form-control"
+										name=""
+										id="conf_pass"
+										placeholder="Confirm Password"
+										onkeyup="passwordVallidate()"
+										minlength="5"
+									/>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<input
+									type="button"
+									class="btn btn-default"
+									data-dismiss="modal"
+									value="Cancel"
+								/>
+								<input type="submit" class="btn btn-info" value="Save" id="passwordChange" style="display: none;"/>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+
+			<!-- create user  -->
+			<div id="createEmployeeModal" class="modal fade">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<form>
+							<div class="modal-header">
+								<h4 class="modal-title">Create User</h4>
+								<button
+									type="button"
+									class="close"
+									data-dismiss="modal"
+									aria-hidden="true"
+								>
+									&times;
+								</button>
+							</div>
+							<div class="modal-body">
+								<div class="form-group">
+									<label>Name</label>
+									<input
+										type="text"
+										id="create_name"
+										class="form-control"
+										placeholder="Enter Name"
+									/>
+								</div>
+								<div class="form-group">
+									<label>Email</label>
+									<input
+										type="email"
+										id="create_email"
+										class="form-control"
+										placeholder="Enter Email"
+									/>
+								</div>
+								<div class="form-group">
+									<label>Phone</label>
+									<input
+										type="number"
+										min="0"
+										id="create_phone"
+										class="form-control"
+										placeholder="Enter Number"
+									/>
+								</div>
+								<div class="form-group">
+									<label>Enter Role</label>
+									<select class="form-control" name="" id="create_role">
+										<option value="Select Role">Select Role</option>
+										<option value="Booking Officer">Booking Officer</option>
+										<option value="Admin">Admin</option>
+										<option value="Package Controller">
+											Package Controller
+										</option>
+										<option value="Manager">Manager</option>
+									</select>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<input
+									type="button"
+									class="btn btn-default"
+									data-dismiss="modal"
+									value="Cancel"
+								/>
+								<input type="submit" class="btn btn-info" value="Save" />
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<footer-foot></footer-foot>
+		</div>
+		<section class="container">
+			<div class="spinner spin-1"></div>
+			<div class="spinner spin-2"></div>
+			<div class="spinner spin-3"></div>
+		</section>
+
+		<script src="assets/js/sideNav.js"></script>
+		<script src="assets/js/topNav.js"></script>
+		<script src="assets/js/footer.js"></script>
+		<script src="assets/js/nav.js" defer></script>
+		<script src="assets/js/preloader.js"></script>
+		<script src="assets/js/users.js"></script>
+		<script>
+			$(document).ready(function () {
+				$("#dataTable").DataTable();
+			});
+		</script>
+	</body>
+</html>

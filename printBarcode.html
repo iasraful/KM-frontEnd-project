@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<meta name="Description" content="Enter your description here" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+		/>
+		<link rel="stylesheet" href="assets/css/style.css" />
+		<link rel="stylesheet" href="assets/css/printBarcode.css" />
+		<title>Title</title>
+	</head>
+	<body onload="toggleSidebar()">
+		<div class="js-render">
+			<side-bar></side-bar>
+			<!-- <side-bar></side-bar> -->
+		</div>
+		<div id="main">
+			<top-bar></top-bar>
+			<div class="content-wrapper container-fluid mt-5">
+				<div class="content-header">
+					<div class="container-fluid">
+						<div class="row mb-2">
+							<div class="col-sm-6"></div>
+							<div class="col-sm-6"></div>
+						</div>
+					</div>
+				</div>
+				<input type="hidden" name="user_role" value="admin" />
+				<section class="content">
+					<form action="" method="post">
+						<div class="container-fluid">
+							<div class="row justify-content-center">
+								<div class="col-12">
+									<div class="card">
+										<div class="card-header">
+											<div class="row" style="margin: -7px">
+												<div class="col-8" style="margin-top: 6px">
+													Print Booking Barcode
+												</div>
+												<div class="col-4">
+													<select class="form-control select2" id="reference">
+														<option value="">Choose Booking</option>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="card-body">
+											<div class="row">
+												<div class="col-12">
+													<table
+														class="table table-bordered table-striped table-sm"
+													>
+														<thead>
+															<th style="text-align: center">Reference</th>
+															<th style="text-align: center">Grand Total</th>
+															<th style="text-align: center; width: 400px">
+																Barcode
+															</th>
+															<th style="text-align: center">Action</th>
+														</thead>
+														<tbody id="barcode_table"></tbody>
+													</table>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</form>
+				</section>
+			</div>
+			<footer-foot></footer-foot>
+		</div>
+		<section class="container">
+			<div class="spinner spin-1"></div>
+			<div class="spinner spin-2"></div>
+			<div class="spinner spin-3"></div>
+		</section>
+
+		<script src="assets/js/nav.js" defer></script>
+		<script src="assets/js/sideNav.js"></script>
+		<script src="assets/js/topNav.js"></script>
+		<script src="assets/js/footer.js"></script>
+		<script src="assets/js/preloader.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+	</body>
+</html>

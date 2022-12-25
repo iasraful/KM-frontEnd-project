@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<meta name="Description" content="Enter your description here" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+		/>
+		<link rel="stylesheet" href="assets/css/style.css" />
+		<link rel="stylesheet" href="assets/css/bookingPayment.css" />
+		<link rel="stylesheet" href="assets/css/companyProfile.css" />
+		<title>Title</title>
+	</head>
+	<body onload="toggleSidebar()">
+		<div class="js-render">
+			<side-bar></side-bar>
+		</div>
+
+		<div id="main">
+			<top-bar></top-bar>
+			<div class="col-lg-5 col-12 adjust card pb-3">
+				<ul class="nav nav-tabs">
+					<li class="nav-item">
+						<a class="nav-link active" data-toggle="tab" href="#menu1"
+							>Primary Information</a
+						>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" data-toggle="tab" href="#menu2"
+							>Advance Information</a
+						>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" data-toggle="tab" href="#menu3">Logo</a>
+					</li>
+				</ul>
+				<div class="tab-content">
+					<div id="home" class="container tab-pane"></div>
+					<div id="menu1" class="container tab-pane active">
+						<div class="form-group mt-2">
+							<label
+								>Company Name<span class="text-danger" title="Required"
+									>*</span
+								></label
+							>
+							<input
+								id="company_name"
+								name="company_name"
+								type="text"
+								class="form-control"
+								placeholder="Name"
+								value="KM Cargo & Logistics Sdn. Bhd."
+								required
+							/>
+							<span class="text-danger errorCompanyName"></span>
+						</div>
+						<div class="form-group">
+							<label
+								>Company Address<span class="text-danger" title="Required"
+									>*</span
+								></label
+							>
+							<input
+								id="company_address"
+								name="company_address"
+								type="text"
+								class="form-control"
+								placeholder="Address"
+								value="116, Jalan Tun H S Lee 50050, WP Kuala Lumpur, Malaysia"
+								required
+							/>
+							<span class="text-danger errorCompanyName"></span>
+						</div>
+						<div class="form-group">
+							<label for="phone"
+								>Phone
+								<span class="text-danger" title="Required">*</span></label
+							>
+							<input
+								type="text"
+								id="phone"
+								name="phone"
+								class="form-control"
+								value="6016 4490 437"
+								placeholder="Phone numbers"
+							/>
+							<span class="text-danger errorPhone"></span>
+						</div>
+						<form action="">
+							<button class="btn btn-success float-right" id="save_primary">
+								<i class="fas fa-cloud-upload-alt"></i>&nbsp; Save
+							</button>
+						</form>
+					</div>
+					<div id="menu2" class="container tab-pane fade">
+						<div class="form-group mt-2">
+							<label for="website"
+								>Website
+								<span class="text-danger" title="Required">*</span></label
+							>
+							<input
+								type="text"
+								id="website"
+								name="website"
+								class="form-control"
+								value="https://www.kmcargo.com.my/"
+								placeholder="Web address"
+							/>
+							<span class="text-danger errorWebsite"></span>
+						</div>
+						<div class="form-group">
+							<label for="hotline"
+								>Hotline
+								<span class="text-danger" title="Required">*</span></label
+							>
+							<input
+								type="number"
+								id="hotline"
+								name="hotline"
+								class="form-control"
+								value="603202223437"
+								placeholder="Hotline"
+							/>
+							<span class="text-danger errorHotline"></span>
+						</div>
+						<div class="form-group">
+							<label for="email"
+								>Email Address
+								<span class="text-danger" title="Required">*</span></label
+							>
+							<input
+								type="text"
+								id="email"
+								name="email"
+								class="form-control"
+								value="info@kmcargo.com.my"
+								placeholder="Email Address"
+							/>
+							<span class="text-danger errorEmail"></span>
+						</div>
+						<form action="">
+							<button class="btn btn-success float-right" id="save_primary">
+								<i class="fas fa-cloud-upload-alt"></i>&nbsp; Save
+							</button>
+						</form>
+					</div>
+					<div id="menu3" class="container tab-pane fade">
+						<div class="circle upload-button ml-3">
+							<img class="profile-pic pics" src="assets/img/logo-update.png" />
+						</div>
+						<input class="file-upload" type="file" accept="image/*" />
+					</div>
+				</div>
+			</div>
+			<footer-foot></footer-foot>
+		</div>
+		<section class="container">
+			<div class="spinner spin-1"></div>
+			<div class="spinner spin-2"></div>
+			<div class="spinner spin-3"></div>
+		</section>
+
+		<script src="assets/js/sideNav.js"></script>
+		<script src="assets/js/topNav.js"></script>
+		<script src="assets/js/footer.js"></script>
+		<script src="assets/js/nav.js" defer></script>
+		<script src="assets/js/preloader.js"></script>
+		<script src="assets/js/companyLogo.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+		<script>
+			$(document).ready(function () {
+				var readURL = function (input) {
+					if (input.files && input.files[0]) {
+						var reader = new FileReader();
+
+						reader.onload = function (e) {
+							$(".profile-pic").attr("src", e.target.result);
+						};
+
+						reader.readAsDataURL(input.files[0]);
+					}
+				};
+
+				$(".file-upload").on("change", function () {
+					readURL(this);
+				});
+
+				$(".upload-button").on("click", function () {
+					$(".file-upload").click();
+				});
+			});
+		</script>
+	</body>
+</html>

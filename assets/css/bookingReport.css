@@ -1,0 +1,39 @@
+.chart_s{
+	height: 500px;
+}
+.tB{
+	background-color: #2b9348;
+}
+.tD{
+	background-color: #17a2b8;
+}
+.wC{
+	background-color: #3d5a80;
+}
+.cC{
+	background-color: #98c1d9;
+}
+.CC{
+	background-color: #4ecdc4;
+}
+.hDC{
+	background-color: #ee6c4d;
+}
+.aC{
+	background-color: #293241;
+}
+.blink {
+	animation: blink-animation 1s steps(5, start) infinite;
+	-webkit-animation: blink-animation 1s steps(5, start) infinite;
+}
+
+@keyframes blink-animation {
+	to {
+		visibility: hidden;
+	}
+}
+@-webkit-keyframes blink-animation {
+	to {
+		visibility: hidden;
+	}
+}

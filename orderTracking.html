@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<meta name="Description" content="Enter your description here" />
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css"
+		/>
+
+		<link
+			href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css"
+			rel="stylesheet"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+		/>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
+		<script src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
+		<link rel="stylesheet" href="assets/css/style.css" />
+		<link rel="stylesheet" href="assets/css/bookingList.css" />
+		<title>Title</title>
+	</head>
+
+	<body onload="toggleSidebar()">
+		<div class="js-render">
+			<side-bar></side-bar>
+		</div>
+		<div id="main">
+			<top-bar></top-bar>
+			<div class="container-fluid">
+				<div class="mt-5 card shadow p-3 fix">
+					<div class="d-flex justify-content-between mt-3 mb-3">
+						<div class="main-title mb-3 h4">Track Order</div>
+					</div>
+					<div class="table-responsive">
+						<table
+							class="table table-bordered text-center text-capitalize"
+							cellspacing="0"
+							id="example"
+						>
+							<thead>
+								<tr>
+									<th>Reference</th>
+									<th>From</th>
+									<th>Sender Phone</th>
+									<th>Receiver Phone</th>
+									<th>Item Description</th>
+									<th>Status</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>asdfa</td>
+									<td>asdfa</td>
+									<td>asfdfa</td>
+									<td>asdfaf</td>
+									<td>asdafa</td>
+									<td >In Malaysia Office</td>
+								</tr>
+								<tr>
+									<td>asdfa</td>
+									<td>asdfa</td>
+									<td>asfdfa</td>
+									<td>asdfaf</td>
+									<td>asdafa</td>
+									<td>In Bangladesh Office</td>
+								</tr>
+								<tr>
+									<td>asdfa</td>
+									<td>asdfa</td>
+									<td>asfdfa</td>
+									<td>asdfaf</td>
+									<td>asdafa</td>
+									<td>Customes</td>
+								</tr>
+								<tr>
+									<td>asdfa</td>
+									<td>asdfa</td>
+									<td>asfdfa</td>
+									<td>asdfaf</td>
+									<td>asdafa</td>
+									<td>Delivered</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<footer-foot></footer-foot>
+		</div>
+		<section class="container">
+			<div class="spinner spin-1"></div>
+			<div class="spinner spin-2"></div>
+			<div class="spinner spin-3"></div>
+		</section>
+
+		<script src="assets/js/sideNav.js"></script>
+		<script src="assets/js/topNav.js"></script>
+		<script src="assets/js/footer.js"></script>
+		<script src="assets/js/nav.js" defer></script>
+		<script src="assets/js/preloader.js"></script>
+		<script src="assets/js/orderTracking.js.js"></script>
+
+		<script>
+			$(document).ready(function () {
+				$("#example").DataTable();
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<meta name="Description" content="Enter your description here" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+		/>
+		<link rel="stylesheet" href="assets/css/style.css" />
+		<link rel="stylesheet" href="assets/css/bookingReport.css" />
+		<title>Title</title>
+	</head>
+
+	<body onload="toggleSidebar()">
+		<div class="js-render">
+			<side-bar></side-bar>
+			<!-- <side-bar></side-bar> -->
+		</div>
+		<div id="main">
+			<top-bar></top-bar>
+			<div class="container-fluid">
+				<div class="form-group mt-3">
+					<label class="font-weight-bold">Show Reports By</label><br>
+					<select class="form-control-sm" name="" id="dataDrop">
+						<option value="monthly" selected>Monthly</option>
+						<option value="yearly">Yearly</option>
+					</select>
+				</div>
+				<div class="row mt-3 mb-3 text-center text-white">
+					<div class="col-md-3 col-12">
+						<div class="small-box card shadow tB">
+							<div class="card-header">Total Bookings</div>
+							<div class="card-body font-weight-bold" id="tBooking">0</div>
+						</div>
+					</div>
+					<div class="col-md-3 col-12">
+						<div class="small-box card shadow tD">
+							<div class="card-header">Total Delivered</div>
+							<div class="card-body font-weight-bold" id="tDelivered">0</div>
+						</div>
+					</div>
+					<div class="col-md-3 col-12">
+						<div class="small-box card shadow wC">
+							<div class="card-header">Total Weight</div>
+							<div class="card-body font-weight-bold" id="tWeight">0</div>
+						</div>
+					</div>
+					<div class="col-md-3 col-12">
+						<div class="small-box card shadow cC">
+							<div class="card-header">Cargo Charge</div>
+							<div class="card-body font-weight-bold" id="tCargo">0</div>
+						</div>
+					</div>
+				</div>
+				<div class="row mt-3 mb-3 text-center text-white">
+					<div class="col-md-3 col-12">
+						<div class="small-box card shadow CC">
+							<div class="card-header">Custom Charge</div>
+							<div class="card-body font-weight-bold" id="tCustom">0</div>
+						</div>
+					</div>
+					<div class="col-md-3 col-12">
+						<div class="small-box card shadow hDC">
+							<div class="card-header">Home Delivery Charge</div>
+							<div class="card-body font-weight-bold" id="tHome">0</div>
+						</div>
+					</div>
+					<div class="col-md-3 col-12">
+						<div class="small-box card shadow aC">
+							<div class="card-header">Additional Charge</div>
+							<div class="card-body font-weight-bold" id="tAdditional">0</div>
+						</div>
+					</div>
+					<div
+						class="col-md-3 col-12 h2 text-warning mt-4 blink"
+						style="font-weight: 800"
+					>
+						Upcoming
+					</div>
+				</div>
+			</div>
+			<div class="chartBox pb-5 card p-3 chart_s mr-3 ml-3">
+				<canvas id="myChart"></canvas>
+				<canvas id="myChart2" style="display: none"></canvas>
+			</div>
+
+			<footer-foot></footer-foot>
+		</div>
+		<section class="container">
+			<div class="spinner spin-1"></div>
+			<div class="spinner spin-2"></div>
+			<div class="spinner spin-3"></div>
+		</section>
+
+		<script src="assets/js/nav.js" defer></script>
+		<script src="assets/js/sideNav.js"></script>
+		<script src="assets/js/topNav.js"></script>
+		<script src="assets/js/footer.js"></script>
+		<script src="assets/js/preloader.js"></script>
+		<script src="assets/js/bookingReport.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/chart.js@3.4.1/dist/chart.min.js"></script>
+		
+	</body>
+</html>

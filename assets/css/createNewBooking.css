@@ -1,0 +1,56 @@
+.card-header {
+	background-color: white;
+	font-weight: bold;
+}
+label {
+	font-weight: bold;
+}
+.contents {
+	font-size: 0.9rem;
+}
+.card {
+	overflow: hideen;
+}
+.impact_sender_option {
+	width: 100%;
+}
+
+.small-card {
+	height: 200px;
+}
+.search_select_box button {
+	background-color: #080342 !important;
+	width: 200px;
+	color: #fff !important;
+	font-size: 1rem;
+}
+.blink {
+	animation: blink-animation 1s steps(5, start) infinite;
+	-webkit-animation: blink-animation 1s steps(5, start) infinite;
+}
+#subCalShow{
+	font-size: 1.2rem;
+}
+/* input filed small */
+.re_size{
+    padding: 0px !important; 
+    font-size: 0.8rem !important;
+	text-align: center;
+}
+.filter-option{
+	padding: 0px !important; 
+    font-size: 0.7rem !important;
+}
+
+@keyframes blink-animation {
+	to {
+		visibility: hidden;
+	}
+}
+@-webkit-keyframes blink-animation {
+	to {
+		visibility: hidden;
+	}
+}
+@media screen and (max-height: 450px) {
+}

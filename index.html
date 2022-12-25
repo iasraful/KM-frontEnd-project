@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="Description" content="Enter your description here" />
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/loader.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css" />
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
+    <title>Dashboard</title>
+</head>
+
+<body onload="toggleSidebar()">
+    <!-- sidebar start -->
+    <div class="js-render">
+        <side-bar></side-bar>
+    </div>
+    <!-- sidebar end -->
+
+    <div id="main">
+        <!-- top bar start -->
+        <top-bar></top-bar>
+        <!-- top bar end -->
+        <!-- cards start -->
+        <div class="container-fluid" id="loader_div">
+            <div class="main-title mt-3 mb-3 h4">
+                Dashboard
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3 col-12">
+                    <div class="small-box card shadow effect">
+                        <div class="d-flex flex-column align-items-center">
+                            <div class="icon-div bg-success"><i class="icon fas fa-box-open"></i></div>
+                            <div class="inner text-center">
+                                <p id="total_received_text">Total Received for today</p>
+                                <h3 class="" id="total_received">0</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-12">
+                    <div class="small-box card shadow effect">
+                        <div class="d-flex flex-column align-items-center">
+                            <div class="icon-div bg-info"><i class="icon fas fa-plane-departure"></i></div>
+                            <div class="inner text-center">
+                                <p id="total_received_text">Total Received for today</p>
+                                <h3 class="" id="total_received">0</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-12">
+                    <div class="small-box card shadow effect">
+                        <div class="d-flex flex-column align-items-center">
+                            <div class="icon-div bg-warning"><i class="icon fas fa-plane-arrival"></i></div>
+                            <div class="inner text-center">
+                                <p id="total_received_text">Total Received for today</p>
+                                <h3 class="" id="total_received">0</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-12">
+                    <div class="small-box card shadow effect">
+                        <div class="d-flex flex-column align-items-center">
+                            <div class="icon-div bg-success"><i class="icon fas fa-shipping-fast"></i></div>
+                            <div class="inner text-center">
+                                <p id="total_received_text">Total Received for today</p>
+                                <h3 class="" id="total_received">0</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-12">
+                    <div class="small-box card shadow effect">
+                        <div class="d-flex flex-column align-items-center">
+                            <div class="icon-div bg-info"><i class="icon fas fa-file-invoice-dollar"></i></div>
+                            <div class="inner text-center">
+                                <p id="total_received_text">Total Received for today</p>
+                                <h3 class="" id="total_received">0</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-12">
+                    <div class="small-box card shadow effect">
+                        <div class="d-flex flex-column align-items-center">
+                            <div class="icon-div bg-success"><i class="icon fas fa-users"></i></div>
+                            <div class="inner text-center">
+                                <p id="total_received_text">Total Received for today</p>
+                                <h3 class="" id="total_received">0</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-12">
+                    <div class="small-box card shadow effect">
+                        <div class="d-flex flex-column align-items-center">
+                            <div class="icon-div bg-danger"><i class="icon fas fa-shipping-fast"></i></div>
+                            <div class="inner text-center">
+                                <p id="total_received_text">Total Received for today</p>
+                                <h3 class="" id="total_received">0</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-12">
+                    <div class="small-box card shadow effect">
+                        <div class="d-flex flex-column align-items-center">
+                            <div class="icon-div bg-primary"><i class="icon fas fa-user-tie"></i></div>
+                            <div class="inner text-center">
+                                <p id="total_received_text">Total Received for today</p>
+                                <h3 class="" id="total_received">0</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- cards end -->
+
+        <!-- bookings table -->
+        <div class="container-fluid">
+            <div class="row mt-3">
+                <div class="col-lg-6 col-12">
+                    <div class="card card-info">
+                        <div class="card-header bg-success">
+                            <div class="card-title h6">Recent Bookings</div>
+                        </div>
+                        <div class="card-body" style="overflow: auto;">
+                            <table class="table table-bordered table-sm">
+                                <thead>
+                                    <th style="text-align: center;">Date</th>
+                                    <th style="text-align: center;">Reference</th>
+                                    <th style="text-align: center;">Freight Category</th>
+                                    <th style="text-align: center;">Status</th>
+                                    <th style="text-align: center;">Grand Total</th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td style="vertical-align:middle;text-align:center;">11 Jun ,2021</td>
+                                        <td style="vertical-align:middle;text-align:center;">SHIP-20210608045927</td>
+                                        <td style="vertical-align:middle;text-align:center;">0</td>
+                                        <td style="vertical-align:middle;text-align:center;">Sea Freight</td>
+                                        <td style="vertical-align:middle;text-align:center;">120</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="vertical-align:middle;text-align:center;">11 Jun ,2021</td>
+                                        <td style="vertical-align:middle;text-align:center;">SHIP-20210608045927</td>
+                                        <td style="vertical-align:middle;text-align:center;">0</td>
+                                        <td style="vertical-align:middle;text-align:center;">Sea Freight</td>
+                                        <td style="vertical-align:middle;text-align:center;">120</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="vertical-align:middle;text-align:center;">11 Jun ,2021</td>
+                                        <td style="vertical-align:middle;text-align:center;">SHIP-20210608045927</td>
+                                        <td style="vertical-align:middle;text-align:center;">0</td>
+                                        <td style="vertical-align:middle;text-align:center;">Sea Freight</td>
+                                        <td style="vertical-align:middle;text-align:center;">120</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="vertical-align:middle;text-align:center;">11 Jun ,2021</td>
+                                        <td style="vertical-align:middle;text-align:center;">SHIP-20210608045927</td>
+                                        <td style="vertical-align:middle;text-align:center;">0</td>
+                                        <td style="vertical-align:middle;text-align:center;">Sea Freight</td>
+                                        <td style="vertical-align:middle;text-align:center;">120</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="vertical-align:middle;text-align:center;">11 Jun ,2021</td>
+                                        <td style="vertical-align:middle;text-align:center;">SHIP-20210608045927</td>
+                                        <td style="vertical-align:middle;text-align:center;">0</td>
+                                        <td style="vertical-align:middle;text-align:center;">Sea Freight</td>
+                                        <td style="vertical-align:middle;text-align:center;">120</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- recend delivered bookings -->
+                <div class="col-lg-6 col-12">
+                    <div class="card card-info">
+                        <div class="card-header bg-success">
+                            <h6 class="card-title">Recent Delivered Bookings</h6>
+                        </div>
+                        <div class="card-body" style="overflow: auto;">
+                            <table class="table table-bordered table-sm">
+                                <thead>
+                                    <th style="text-align: center;">Date</th>
+                                    <th style="text-align: center;">Reference</th>
+                                    <th style="text-align: center;">Freight Category</th>
+                                    <th style="text-align: center;">Status</th>
+                                    <th style="text-align: center;">Grand Total</th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td style="vertical-align:middle;text-align:center;">11 Jun ,2021</td>
+                                        <td style="vertical-align:middle;text-align:center;">SHIP-20210608045927</td>
+                                        <td style="vertical-align:middle;text-align:center;">0</td>
+                                        <td style="vertical-align:middle;text-align:center;">Sea Freight</td>
+                                        <td style="vertical-align:middle;text-align:center;">120</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </section>
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row mt-3">
+                    <div class="col-lg-6 col-12">
+                        <!-- recent shipment -->
+                        <div class="card card-info">
+                            <div class="card-header bg-info">
+                                <div class="card-title h6">Recent Shipments</div>
+                            </div>
+                            <div class="card-body" style="overflow: auto;">
+                                <table class="table table-bordered table-sm">
+                                    <thead>
+                                        <th style="text-align: center;">Date</th>
+                                        <th style="text-align: center;">Reference</th>
+                                        <th style="text-align: center;">Assigned Bookings</th>
+                                        <th style="text-align: center;">Freight Category</th>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td style="vertical-align:middle;text-align:center;">11 Jun ,2021</td>
+                                            <td style="vertical-align:middle;text-align:center;">SHIP-20210608045927
+                                            </td>
+                                            <td style="vertical-align:middle;text-align:center;"></td>
+                                            <td style="vertical-align:middle;text-align:center;">Sea Freight</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="vertical-align:middle;text-align:center;">20 May ,2021</td>
+                                            <td style="vertical-align:middle;text-align:center;">SHIP-20210524013345
+                                            </td>
+                                            <td style="vertical-align:middle;text-align:center;">
+                                                0
+                                            </td>
+                                            <td style="vertical-align:middle;text-align:center;">
+                                                Sea Freight
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="vertical-align:middle;text-align:center;">11 May ,2021</td>
+                                            <td style="vertical-align:middle;text-align:center;">SHIP-20210524013242
+                                            </td>
+                                            <td style="vertical-align:middle;text-align:center;">
+                                                0
+                                            </td>
+                                            <td style="vertical-align:middle;text-align:center;">
+                                                Air Freight
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                   
+                    <!-- recent ml expenses -->
+                    <div class="col-lg-6 col-12">
+                        <div class="card card-info">
+                            <div class="card-header bg-warning">
+                                <h6 class="card-title">Recent ML Expenses</h6>
+                            </div>
+                            <div class="card-body" style="overflow: auto;">
+                                <table class="table table-bordered table-sm">
+                                    <thead>
+                                        <th style="text-align:center;">Date</th>
+                                        <th style="text-align:center;">Category</th>
+                                        <th style="text-align:center;">Amount</th>
+                                        <th style="text-align:center;">Entry By</th>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="expense_1">
+                                            <td style="vertical-align:middle;text-align:center;">26 May, 2021</td>
+                                            <td style="vertical-align:middle;text-align:center;">Soap</td>
+                                            <td style="vertical-align:middle;text-align:center;">125 RM</td>
+                                            <td style="vertical-align:middle;text-align:center;">Admin</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <footer-foot></footer-foot>
+        </section>
+        <section class="container">
+            <div class="spinner spin-1"></div>
+            <div class="spinner spin-2"></div>
+            <div class="spinner spin-3"></div>
+        </section>
+    </div>
+    <script src="assets/js/sideNav.js"></script>
+    <script src="assets/js/topNav.js"></script>
+    <script src="assets/js/footer.js"></script>
+    <script src="assets/js/nav.js" defer></script>
+    <script src="assets/js/preloader.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+    <!-- n -->
+    <script>
+        alertify.set('notifier', 'position', 'top-center');
+        alertify.success('Login Successful');
+    </script>
+
+</body>
+
+</html>

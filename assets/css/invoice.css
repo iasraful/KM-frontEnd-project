@@ -1,0 +1,43 @@
+.backgroundImage {
+	position: absolute;
+    opacity: 20%;
+    top: 15%;
+    left: 10%;
+    
+}
+img{
+    height: 80vh;
+}
+
+.logo {
+	height: 70px;
+	width: 70px;
+	object-fit: contain;
+}
+.header_text {
+	font-weight: bold;
+}
+.text_bg {
+	background-color: #13465cfb;
+	color: white;
+	padding-left: 10px;
+}
+.finish {
+	font-weight: bold;
+	font-size: 1.3rem;
+	color: rgba(255, 168, 7, 0.87);
+}
+.com_name {
+	font-size: 1.5rem;
+}
+.resize {
+	font-size: 0.8rem;
+}
+.sign {
+	height: 10px;
+	width: 150px;
+	border-bottom: 1px solid black;
+}
+.t_name {
+	font-size: 1.1rem;
+}

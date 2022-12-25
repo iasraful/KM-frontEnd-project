@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<meta name="Description" content="Enter your description here" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+		/>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css"
+		/>
+		<link rel="stylesheet" href="assets/css/style.css" />
+		<link rel="stylesheet" href="assets/css/createNewBooking.css" />
+		<link rel="stylesheet" href="assets/css/loader.css" />
+		<link rel="stylesheet" href="build/css/intlTelInput.css" />
+
+		<title>Title</title>
+	</head>
+
+	<body onload="toggleSidebar()">
+		<!-- sidebar start -->
+		<div class="js-render">
+			<side-bar></side-bar>
+			<!-- sidebar end -->
+		</div>
+		<div id="main">
+			<top-bar></top-bar>
+			<!-- sender information and receiver information start -->
+			<div class="contents">
+				<div class="row mt-3 mb-3 ml-3">
+					<div class="main-title mb-3 h5 col-12 col-md-6">
+						Create New Booking
+					</div>
+					<div class="col-12 col-md-6 d-flex justify-content-end">
+						<a href="">
+							<button class="btn btn-default btn-info mr-1">
+								<i class="fas fa-list mr-1 rounded"></i>View All Bookings
+							</button>
+						</a>
+
+						<a href="">
+							<button class="btn btn-default btn-success" id="save">
+								<i class="fas fa-cloud-upload-alt mr-1 rounded"></i>Save Booking
+							</button>
+						</a>
+					</div>
+				</div>
+
+				<form action="">
+					<section class="content">
+						<div class="">
+							<!-- demo table for data pass start -->
+							<table class="table" id="mytab1" hidden>
+								<thead>
+									<tr>
+										<th>Name</th>
+										<th>Country</th>
+										<th>State</th>
+										<th>City</th>
+										<th>Phone</th>
+										<th>Freight</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Rifat</td>
+										<td>Bangladesh</td>
+										<td>Dhaka</td>
+										<td>Bashundhora</td>
+										<td>017643610</td>
+										<td>Air Freight</td>
+									</tr>
+									<tr>
+										<td>Sifat</td>
+										<td>Bangladesh</td>
+										<td>Dhaka</td>
+										<td>Baridhara</td>
+										<td>01604306107</td>
+										<td>Cargo Freight</td>
+									</tr>
+									<tr>
+										<td>Mifat</td>
+										<td>Bangladesh</td>
+										<td>Dhaka</td>
+										<td>Uttara</td>
+										<td>01860430610</td>
+										<td>Air Freight</td>
+									</tr>
+									<tr>
+										<td>Nifat</td>
+										<td>Bangladesh</td>
+										<td>Dhaka</td>
+										<td>Badda</td>
+										<td>01960430610</td>
+										<td>Cargo Freight</td>
+									</tr>
+								</tbody>
+							</table>
+							<table class="table" id="mytab2" hidden>
+								<thead>
+									<tr>
+										<th>Name</th>
+										<th>Country</th>
+										<th>State</th>
+										<th>City</th>
+										<th>Phone</th>
+										<th>SenderPhone</th>
+										<th>Booking Type</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Rifat2</td>
+										<td>Bangladesh</td>
+										<td>Dhaka</td>
+										<td>Bashundhora</td>
+										<td>01970430610</td>
+										<td>017643610</td>
+										<th>Normal</th>
+									</tr>
+									<tr>
+										<td>Sifat2</td>
+										<td>Bangladesh</td>
+										<td>Dhaka</td>
+										<td>Baridhara</td>
+										<td>01604306177</td>
+										<td>01604306107</td>
+										<th>Business</th>
+									</tr>
+									<tr>
+										<td>Mifat2</td>
+										<td>Bangladesh</td>
+										<td>Dhaka</td>
+										<td>Uttara</td>
+										<td>01254789632</td>
+										<td>01860430610</td>
+										<td>Business</td>
+									</tr>
+									<tr>
+										<td>Nifat2</td>
+										<td>Bangladesh</td>
+										<td>Dhaka</td>
+										<td>Badda</td>
+										<td>01666777885</td>
+										<td>01960430610</td>
+										<td>Normal</td>
+									</tr>
+								</tbody>
+							</table>
+							<!-- demo table for data pass end -->
+							<!-- sender  and receiver information div start -->
+							<div class="row">
+								<div class="col-12 col-lg-6">
+									<div class="card shadow">
+										<div class="card-header">
+											<div class="row">
+												<div
+													class="col-lg-6 col-12 font-weight-bold"
+													id="sender_title"
+													style="margin-top: 6px"
+												>
+													Sender Information
+												</div>
+												<div
+													class="col-lg-6 col-12 form-group search_select_box"
+													id="impact_sender_option"
+													style="display: none"
+												>
+													<select
+														data-live-search="true"
+														name="sender"
+														class="form-control my-select"
+														id="dbValues"
+														onchange="showMe(this);"
+													>
+														<option value="exist" selected>
+															Choose Existing Sender
+														</option>
+														<option value="">017643610</option>
+														<option value="">01604306107</option>
+														<option value="">121544848</option>
+														<option value="prev" id="myChange">
+															New Sender
+														</option>
+													</select>
+												</div>
+												<div
+													class="col-lg-6 col-12 form-group"
+													id="choose_sender_option"
+												>
+													<select
+														name="sender_option"
+														class="form-control"
+														onchange="showMe(this);"
+														style="display: block"
+													>
+														<option value="new">New Sender</option>
+														<option value="old">Existing</option>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="card-body">
+											<div class="row">
+												<div class="col-12 col-lg-6">
+													<div class="form-group">
+														<label for="sender_name"
+															>Name
+															<span class="text-danger" title="Required"
+																>*</span
+															></label
+														>
+														<input
+															type="text"
+															id="sender_name"
+															value=""
+															name="sender_name"
+															class="form-control"
+															placeholder="Name"
+															required
+														/>
+													</div>
+												</div>
+												<div class="col-12 col-lg-6">
+													<div class="form-group">
+														<label for="sender_phone"
+															>Phone
+															<span class="text-danger" title="Required"
+																>*</span
+															></label
+														>
+														<input
+															id="sender_phone"
+															name="sender_phone"
+															onkeyup="senderPhone()"
+															type="tel"
+															type="number"
+															class="form-control"
+															required
+														/>
+														<span class="text-danger errorSenderPhone"></span>
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-12 col-lg-6">
+													<div class="form-group">
+														<label for="description"
+															>Freight Category
+															<span class="text-danger" title="Required"
+																>*</span
+															></label
+														>
+														<select
+															name="frieght"
+															class="form-select form-control"
+															id="freight"
+															required
+														>
+															<option value="Select Freight">
+																Select Freight
+															</option>
+															<option value="Air Freight">Air Freight</option>
+															<option value="Sea Freight">Sea Freight</option>
+															<option value="Warehouse">Warehouse</option>
+														</select>
+														<span
+															class="text-danger errorSenderDescription"
+														></span>
+													</div>
+												</div>
+												<div class="col-12 col-lg-6">
+													<div class="form-group">
+														<label for="sender_country"
+															>Country
+															<span class="text-danger" title="Required"
+																>*</span
+															></label
+														>
+														<select
+															name="country"
+															class="country form-control"
+															id="country"
+															required
+														>
+															<option value="">Select Country</option>
+														</select>
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-12 col-lg-6">
+													<div class="form-group">
+														<label for="sender_state"
+															>State
+															<span class="text-danger" title="Required"
+																>*</span
+															></label
+														>
+														<select
+															name="state"
+															class="form-control state"
+															id="state"
+															required
+														>
+															<option value="">Select State</option>
+														</select>
+													</div>
+												</div>
+												<div class="col-12 col-lg-6">
+													<div class="form-group col-12 col-lg-12">
+														<label for="sender_city"
+															>City / Town
+															<span class="text-danger" title="Required"
+																>*</span
+															></label
+														>
+														<select
+															name="city"
+															class="city form-control"
+															id="city"
+															required
+														>
+															<option value="">Select City</option>
+														</select>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-12 col-lg-6">
+									<div class="card shadow top-buffer">
+										<div class="card-header">
+											<p class="font-weight-bold mt-2 pb-1">
+												Receiver Information
+											</p>
+										</div>
+										<div class="card-body">
+											<div class="row">
+												<div class="col-12 col-lg-6">
+													<div class="form-group">
+														<label for="reciever_name"
+															>Name
+															<span class="text-danger" title="Required"
+																>*</span
+															></label
+														>
+														<input
+															id="receiver_name"
+															name="receiver_name"
+															type="text"
+															type="number"
+															class="form-control"
+															placeholder="Name"
+															required
+														/>
+														<span class="text-danger errorRecieverName"></span>
+													</div>
+												</div>
+												<div class="col-12 col-lg-6">
+													<div class="form-group">
+														<label for="booking_type">Booking Type</label>
+														<div class="d-flex">
+															<div class="icheck-success mr-2">
+																<input
+																	type="checkbox"
+																	id="normal"
+																	name="booking_type"
+																/>
+																<label for="normal">Normal</label>
+															</div>
+															<div class="icheck-success">
+																<input
+																	type="checkbox"
+																	id="business"
+																	name="booking_type"
+																/>
+																<label for="business">Business</label>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-12 col-lg-6">
+													<div class="form-group">
+														<label for="reciever_phone"
+															>Phone
+															<span class="text-danger" title="Required"
+																>*</span
+															></label
+														>
+														<input
+															type="tel"
+															id="reciever_phone"
+															onkeyup="reciverPhone()"
+															name="reciever_phone"
+															class="form-control"
+														/>
+														<span class="text-danger errorRecieverPhone"></span>
+													</div>
+												</div>
+												<div class="col-12 col-lg-6">
+													<div class="form-group">
+														<label for="delivery_type">Delivery Type</label>
+														<select
+															name="delivery_type"
+															class="form-control"
+															onchange="showMe(this);"
+															id="delivery_type"
+														>
+															<option value="">Select Type</option>
+															<option value="Home Delivery">
+																Home Delivery
+															</option>
+															<option value="office_delivery">
+																Office Delivery
+															</option>
+														</select>
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-12 col-lg-4">
+													<div class="form-group">
+														<label for="reciever_country"
+															>Country
+															<span class="text-danger" title="Required"
+																>*</span
+															></label
+														>
+														<select
+															name="country"
+															class="countries form-control"
+															id="countryR"
+														>
+															<option value="">Select Country</option>
+														</select>
+														<span
+															class="text-danger errorRecieverCountry"
+														></span>
+													</div>
+												</div>
+												<div class="col-12 col-lg-4">
+													<div class="form-group">
+														<label for="package_destination"
+															>State
+															<span class="text-danger" title="Required"
+																>*</span
+															></label
+														>
+														<select
+															name="city"
+															class="states form-control"
+															id="stateR"
+														>
+															<option value="">Select State</option>
+														</select>
+														<span
+															class="text-danger errorPackageDestination"
+														></span>
+													</div>
+												</div>
+												<div class="col-12 col-lg-4">
+													<div class="form-group">
+														<label for="package_destination"
+															>City / Town
+															<span class="text-danger" title="Required"
+																>*</span
+															></label
+														>
+														<select
+															name="city"
+															class="cities form-control"
+															id="cityR"
+														>
+															<option value="">Select City</option>
+														</select>
+														<span
+															class="text-danger errorPackageDestination"
+														></span>
+													</div>
+												</div>
+											</div>
+											<div style="display: none" id="additionalInfo">
+												<div class="row">
+													<div class="col-12 col-lg-4">
+														<div class="form-group">
+															<label for="">Road No</label>
+															<input
+																type="text"
+																class="form-control"
+																name=""
+																id=""
+																placeholder="Road No"
+															/>
+														</div>
+													</div>
+													<div class="col-12 col-lg-4">
+														<div class="form-group">
+															<label for="">House No</label>
+															<input
+																type="text"
+																class="form-control"
+																name=""
+																id=""
+																placeholder="House No"
+															/>
+														</div>
+													</div>
+													<div class="col-12 col-lg-4">
+														<div class="form-group">
+															<label for="">Others</label>
+															<input
+																type="text"
+																class="form-control"
+																name=""
+																id=""
+																placeholder="Others"
+															/>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- sender and receiver information div end -->
+
+							<table class="table" id="mytab" hidden>
+								<tbody>
+									<tr>
+										<td>AC 1 Ton</td>
+										<td>300</td>
+									</tr>
+									<tr>
+										<td>AC 2 Ton</td>
+										<td>20</td>
+									</tr>
+									<tr>
+										<td>AC Window</td>
+										<td>100</td>
+									</tr>
+								</tbody>
+							</table>
+							<!-- calculation table start -->
+							<div class="row mt-3">
+								<div class="col-12">
+									<div class="card shadow mb-5">
+										<div class="card-header">Product List</div>
+										<div class="card-body">
+											<div class="table-responsive">
+												<table
+													class="table text-center"
+													id="row"
+													onkeyup="test()"
+													onclick="test()"
+												>
+													<thead>
+														<th>Name</th>
+														<th>Quantity (pcs)</th>
+														<th>Weight (per pcs)</th>
+														<th>Weight Types</th>
+														<th>Total Weight (KG)</th>
+														<th>Customs Charge</th>
+														<th>Discount</th>
+														<th>Subtotal</th>
+														<th>Action</th>
+													</thead>
+													<tbody id="product_list">
+														<tr class="anchors1" id="rw1">
+															<td onclick="myF(1)">
+																<select
+																	class="
+																		form-control
+																		re_size
+																		products
+																		my-select
+																	"
+																	data-live-search="true"
+																	data-container="body"
+																	style="width: 200px"
+																	id="product_1"
+																	name="products"
+																>
+																	<option value="Choose Products">
+																		Choose Products
+																	</option>
+																	<option value="AC 1 Ton">AC 1 Ton</option>
+																	<option value="AC 2 Ton">AC 2 Ton</option>
+																	<option value="AC Window">AC Window</option>
+																	<option value="Air Cooler">Air Cooler</option>
+																	<option value="Airon Machine">
+																		Airon Machine
+																	</option>
+																	<option value="Antenna">Antenna</option>
+																	<option value="Soap">Soap</option>
+																</select>
+															</td>
+															<td>
+																<input
+																	type="number"
+																	min="0"
+																	id="no_of_p1"
+																	onkeyup="myFunction(1)"
+																	name="product"
+																	class="form-control re_size"
+																/>
+															</td>
+															<td>
+																<input
+																	type="number"
+																	min="0"
+																	id="weight1"
+																	onkeyup="myFunction(1)"
+																	onclick="myFunction(1)"
+																	name="weight"
+																	class="form-control weights re_size"
+																/>
+															</td>
+															<td>
+																<select
+																	name="weight"
+																	id="weight_units1"
+																	onclick="myFunction(1)"
+																	class="form-control re_size"
+																>
+																	<option value="KG">KG</option>
+																	<option value="GRAM">GRAM</option>
+																</select>
+															</td>
+															<td
+																style="
+																	vertical-align: middle;
+																	text-align: center;
+																"
+																id="totalWeight_1"
+															>
+																0
+															</td>
+															<td>
+																<input
+																	type="number"
+																	min="0"
+																	id="customes_charge1"
+																	name="customes_charges"
+																	onkeyup="myFunction(1)"
+																	class="form-control customes_charges re_size"
+																	readonly
+																/>
+															</td>
+															<td>
+																<input
+																	type="number"
+																	min="0"
+																	id="discount1"
+																	name="discount"
+																	onkeyup="myFunction(1)"
+																	class="form-control discount re_size"
+																/>
+															</td>
+															<td
+																style="
+																	vertical-align: middle;
+																	text-align: center;
+																"
+																class="subtotals"
+																id="subtotal1"
+															>
+																0
+															</td>
+															<td>
+																<i
+																	class="far fa-trash-alt btn"
+																	id="delete_modal1"
+																	onclick="myFunc(1)"
+																	style="font-size: 1rem"
+																></i>
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+											<div class="table-responsive">
+												<table class="table">
+													<tr>
+														<td>
+															<label for="">Gross Weight</label>
+															<input
+																type="number"
+																min="0"
+																placeholder="Gross Weight"
+																class="form-control mr-3"
+																id="subCalShow2"
+																onkeyup="myFunction(1)"
+															/>
+														</td>
+														<td>
+															<label for="">Gross Weight Price</label>
+															<input
+																type="number"
+																min="0"
+																placeholder="Gross Weight Price"
+																class="form-control mr-3"
+																id="grossWeight"
+																onkeyup="myFunction(1)"
+															/>
+														</td>
+														
+														<td>
+															<input
+																type="text"
+																class="mt-4"
+																id="json"
+																readonly
+																hidden
+															/>
+														</td>
+														<td>
+															<input
+																type="text"
+																id="subCalShow"
+																class="
+																	form-control
+																	mt-4
+																	font-weight-bold
+																	text-right
+																"
+																style="
+																	border: none;
+																	background-color: transparent;
+																"
+																readonly
+															/>
+														</td>
+														<td>
+															<a
+																class="btn btn-success create mt-4"
+																id="addRow"
+																style="display: none"
+															>
+																<i class="fas fa-plus-circle"></i>
+															</a>
+														</td>
+													</tr>
+													<tr>
+														<td>
+															<label for="">Volume Weight</label>
+															<input
+																type="number"
+																min="0"
+																placeholder="Volume Weight"
+																class="form-control"
+																id="volumeWeightInput"
+																onkeyup="myFunction(1)"
+															/>
+														</td>
+														<td>
+															<label for="">Volume Weight Price</label>
+															<input
+																type="number"
+																min="0"
+																placeholder="Volume Weight Price"
+																class="form-control"
+																id="volumeWeight"
+																onkeyup="myFunction(1)"
+															/>
+														</td>
+														
+													</tr>
+												</table>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- calculation table end -->
+							<!-- all charges div start -->
+							<div class="row mb-5">
+								<div class="col-lg-3 col-12">
+									<div class="card shadow small-card">
+										<div class="card-header">Home Delivery Charge</div>
+										<div class="card-body">
+											<div class="col-12">
+												<label for="home_delivery"
+													>Add Home Delivery Charge?</label
+												>
+											</div>
+											<div class="d-flex justify-content-center">
+												<a
+													class="btn btn-success btn-sm col-4 mr-1"
+													id="home_yes"
+													>Yes</a
+												>
+												<a class="btn btn-info btn-sm col-4 ml-1" id="home_no"
+													>No</a
+												>
+											</div>
+											<div class="col-12 mt-2">
+												<div id="home_delivery_charge" style="display: none">
+													<div class="d-flex align-items-center">
+														<input
+															type="number"
+															id="home_charge"
+															min="0"
+															class="form-control"
+															name="home_delivery_charge"
+															placeholder="Home Delivery Charge"
+															onkeyup="myFunction(1)"
+														/>
+														<div onclick="myFunction(1)">
+															<i
+																class="far fa-trash-alt btn"
+																id="delete_charge"
+															></i>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-3 col-12">
+									<div class="card shadow small-card">
+										<div class="card-header">District Charge</div>
+										<div class="card-body">
+											<div class="col-12">
+												<label for="district_charge"
+													>Add District Charge?</label
+												>
+											</div>
+											<div class="d-flex justify-content-center">
+												<a
+													class="btn btn-success btn-sm col-4 mr-1"
+													id="district_yes"
+													>Yes</a
+												>
+												<a
+													class="btn btn-info btn-sm col-4 ml-1"
+													id="district_no"
+													>No</a
+												>
+											</div>
+											<div class="col-12 mt-2">
+												<div id="district_charge" style="display: none">
+													<div class="d-flex align-items-center">
+														<input
+															type="number"
+															id="d_charge"
+															min="0"
+															class="form-control"
+															name="district_charge"
+															placeholder="District Charge"
+															onkeyup="myFunction(1)"
+														/>
+														<div onclick="myFunction(1)">
+															<i
+																class="far fa-trash-alt btn"
+																id="delete_charge_district"
+															></i>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-3 col-12">
+									<div class="card shadow small-card">
+										<div class="card-header">Packaging Charge</div>
+										<div class="card-body">
+											<div class="col-12">
+												<label for="packaging_charge"
+													>Add Packaging Charge?</label
+												>
+											</div>
+											<div class="d-flex justify-content-center">
+												<a
+													class="btn btn-success btn-sm col-4 mr-1"
+													id="packaging_yes"
+													>Yes</a
+												>
+												<a
+													class="btn btn-info btn-sm col-4 ml-1"
+													id="packaging_no"
+													>No</a
+												>
+											</div>
+											<div class="col-12 mt-2">
+												<div id="packaging_charge" style="display: none">
+													<div class="d-flex align-items-center">
+														<input
+															type="number"
+															id="p_charge"
+															min="0"
+															class="form-control"
+															name="packaging_charge"
+															placeholder="Packaging Charge"
+															onkeyup="myFunction(1)"
+														/>
+														<div onclick="myFunction(1)">
+															<i
+																class="far fa-trash-alt btn"
+																id="delete_charge_packaging"
+															></i>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-3 col-12">
+									<div class="card shadow small-card">
+										<div class="card-header">Additional Charge</div>
+										<div class="card-body">
+											<div class="col-12">
+												<label for="additional_charge"
+													>Add Additional Charge?</label
+												>
+											</div>
+											<div class="d-flex justify-content-center">
+												<a
+													class="btn btn-success btn-sm col-4 mr-1"
+													id="additional_yes"
+													>Yes</a
+												>
+												<a
+													class="btn btn-info btn-sm col-4 ml-1"
+													id="additional_no"
+													>No</a
+												>
+											</div>
+											<div class="col-12 mt-2">
+												<div id="additional_charge" style="display: none">
+													<div class="d-flex align-items-center">
+														<input
+															type="number"
+															id="a_charge"
+															min="0"
+															class="form-control"
+															name="additional_charge"
+															placeholder="Additional Charge"
+															onkeyup="myFunction(1)"
+														/>
+														<div onclick="myFunction(1)">
+															<i
+																class="far fa-trash-alt btn"
+																id="delete_charge_additional"
+															></i>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+				</form>
+				<div id="pre"></div>
+
+				<footer-foot></footer-foot>
+			</div>
+			<!-- sender information and receiver information end -->
+		</div>
+		<section class="container">
+			<div class="spinner spin-1"></div>
+			<div class="spinner spin-2"></div>
+			<div class="spinner spin-3"></div>
+		</section>
+		<script src="assets/js/nav.js" defer></script>
+		<script src="assets/js/sideNav.js"></script>
+		<script src="assets/js/topNav.js"></script>
+		<script src="assets/js/footer.js"></script>
+		<script src="assets/js/createNewBooking.js" defer></script>
+		<script src="assets/js/preloader.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+		<script src="assets/js/countryStateCity.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-growl/1.0.0/jquery.bootstrap-growl.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+		<script src="build/js/intlTelInput.js"></script>
+		<!-- notification -->
+		<script>
+			function success() {
+				$.bootstrapGrowl("Booking Successfully Created! ", {
+					ele: "body",
+					type: "success",
+					offset: { from: "top", amount: 20 },
+					align: "right",
+					width: 300,
+					delay: 4000,
+					allow_dismiss: true,
+					stackup_spacing: 10,
+				});
+			}
+			function error() {
+				$.bootstrapGrowl("An Error Occured! ", {
+					ele: "body",
+					type: "danger",
+					offset: { from: "top", amount: 20 },
+					align: "right",
+					width: 250,
+					delay: 4000,
+					allow_dismiss: true,
+					stackup_spacing: 10,
+				});
+			}
+		</script>
+		<script>
+			alertify.set("notifier", "position", "top-center");
+			alertify.success("Login Successful");
+		</script>
+		<script>
+			var input = document.querySelector("#sender_phone");
+			window.intlTelInput(input, {
+				autoPlaceholder: "none",
+				initialCountry: "BD",
+				preferredCountries: ["bd", "my"],
+				utilsScript: "build/js/utils.js",
+			});
+		</script>
+		<script src="build/js/intelInput2.js"></script>
+		<script>
+			var input = document.querySelector("#reciever_phone");
+			window.intlTelInput(input, {
+				autoPlaceholder: "none",
+				initialCountry: "MY",
+				preferredCountries: ["my", "bd"],
+				utilsScript: "build/js/utils.js",
+			});
+		</script>
+		<script>
+			function test() {
+				var count = 7;
+				var tbl = $("#row tbody tr")
+					.map(function (idxRow, ele) {
+						var retVal = { id: ++idxRow };
+
+						var $td = $(ele)
+							.find("td")
+							.map(function (idxCell, ele) {
+								if (idxCell <= count - 1) {
+									var input = $(ele).find(":input");
+
+									if (input.length >= 1) {
+										var attr = $("#row thead tr th").eq(idxCell).text();
+										retVal[attr] = input.val();
+									} else {
+										var attr = $("#row thead tr th").eq(idxCell).text();
+										retVal[attr] = $(ele).text();
+									}
+								}
+							});
+						return retVal;
+					})
+					.get();
+				var jData = JSON.stringify(tbl)
+					.replace(/ *\([^)]*\) */g, "")
+					.replace(/\s(?=\w+":)/g, "");
+				console.log(jData);
+
+				document.getElementById("json").value = jData;
+			}
+		</script>
+		<script>
+			$(document).ready(function () {
+				var tbody = $("#row").children("tbody");
+
+				var table = tbody.length ? tbody : $("#row");
+				var count = 1;
+				$(".create").click(function () {
+					count++;
+					table.append(`
+		<tr class="anchors${count}" id="rw${count}">
+		<td onclick="myF(${count})">
+			<select class="form-control re_size products my-select"  data-container="body" data-live-search="true" id="product_${count}" onclick="myF(${count})" name="products" style="width: 200px;" >
+				<option value="Choose Products">Choose Products</option>
+				{% for product in products %}
+                	<option value="{{product.product_type}}">{{product.product_name}}</option>
+				{% endfor %}
+				<option value="AC 1 Ton">AC 1 Ton</option>
+				<option value="AC 2 Ton">AC 2 Ton</option>
+				<option value="AC Window">AC Window</option>
+				<option value="Air Cooler">Air Cooler</option>
+				<option value="Airon Machine">Airon Machine</option>
+				<option value="Antenna">Antenna</option>
+				<option value="Soap">Soap</option>
+			</select>
+		</td>
+		<td><input type="number" min="0" id="no_of_p${count}" onkeyup="myFunction(${count})" name="product" class="form-control re_size"/></td>
+		<td>
+			<div class="row">
+				<div class="col-12"><input type="number" min="0" id="weight${count}" onkeyup="myFunction(${count})" name="weight" class="form-control weights re_size"/></div>
+			</div>
+		</td>
+		<td>
+			<select name="weight" id="weight_units${count}" onclick="myFunction(${count})" class="form-control re_size">
+				<option value="KG">KG</option>
+				<option value="GRAM">GRAM</option>
+			</select>
+		</td>
+		<td style="vertical-align: middle; text-align: center;" id="totalWeight_${count}">0</td>
+		<td><input type="number" min="0" id="customes_charge${count}" onkeyup="myFunction(${count})" name="customes_charges" class="form-control customes_charges re_size" readonly/></td>
+		<td><input type="number" min="0" id="discount${count}" onkeyup="myFunction(${count})" name="discount" class="form-control discount re_size" /></td>
+		<td style="vertical-align: middle; text-align: center" class="subtotals" id="subtotal${count}">0</td>
+		<td><i class="far fa-trash-alt btn" id="delete_modal${count}" onclick="myFunc(${count})" style="font-size:1rem;" title="Delete"/></td>
+		</tr>
+		
+	`);
+				});
+			});
+		</script>
+		<script>
+			function senderPhone() {
+				var options = document.getElementById("country").options;
+				var code = document.getElementById("sender_phone").value;
+				let result = code.includes(+880);
+
+				if (result === true) {
+					for (var i = 0; i < options.length; i++) {
+						if (options[i].text == "Bangladesh") {
+							options[i].selected = true;
+							document.getElementById("country").click();
+							break;
+						}
+					}
+				}
+				let result2 = code.includes(+60);
+				if (result2 === true) {
+					for (var i = 0; i < options.length; i++) {
+						if (options[i].text == "Malaysia") {
+							options[i].selected = true;
+							document.getElementById("country").click();
+							break;
+						}
+					}
+				}
+			}
+
+			function reciverPhone() {
+				var options = document.getElementById("countryR").options;
+				var code = document.getElementById("reciever_phone").value;
+				let result = code.includes(+880);
+
+				if (result === true) {
+					for (var i = 0; i < options.length; i++) {
+						if (options[i].text == "Bangladesh") {
+							options[i].selected = true;
+							document.getElementById("countryR").click();
+							break;
+						}
+					}
+				}
+				let result2 = code.includes(+60);
+				if (result2 === true) {
+					for (var i = 0; i < options.length; i++) {
+						if (options[i].text == "Malaysia") {
+							options[i].selected = true;
+							document.getElementById("countryR").click();
+							break;
+						}
+					}
+				}
+			}
+		</script>
+	</body>
+</html>
